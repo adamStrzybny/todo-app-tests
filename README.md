@@ -1,2 +1,2 @@
-# todo-testing
+# todo-app-tests
 Repo for recruitment purposes
