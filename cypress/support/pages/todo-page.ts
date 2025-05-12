@@ -19,8 +19,20 @@ export class TodoPage {
 
   verifyAllTasksWereAdded(expectedCount: number): this {
 
-    cy.get(todoCSS.todoList).find(todoCSS.todoItem)
+    cy.get(todoCSS.todoList)
+      .find(todoCSS.todoItem)
       .should('have.length', expectedCount);
+
+    return this;
+  };
+
+  deleteTask(taskIndexNumber: number): this {
+
+    cy.get(todoCSS.todoItem)
+      .eq(taskIndexNumber)
+      .trigger('mouseover')
+      .find(todoCSS.deleteButton)
+      .click( { force:true } );
 
     return this;
   };
