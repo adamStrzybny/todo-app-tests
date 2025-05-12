@@ -69,4 +69,24 @@ export class TodoPage {
 
     return this;
   };
+
+  editTask(taskIndexNumber: number, editedText: string): this {
+
+    cy.get(todoCSS.todoItem)
+      .eq(taskIndexNumber)
+      .dblclick();
+
+    cy.get(todoCSS.todoItem)
+      .eq(taskIndexNumber)
+      .find(todoCSS.editIem)
+      .clear()
+      .type(`${editedText}{enter}`);
+
+    cy.get(todoCSS.todoItem)
+      .eq(taskIndexNumber)
+      .find(todoCSS.inputText)
+      .should('have.text', editedText);
+
+    return this;
+  };
 };
