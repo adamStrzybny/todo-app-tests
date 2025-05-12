@@ -17,7 +17,7 @@ export class TodoPage {
     return this;
   };
 
-  verifyAllTasksWereAdded(expectedCount: number): this {
+  verifyAmountOfAddedTasks(expectedCount: number): this {
 
     cy.get(todoCSS.todoList)
       .find(todoCSS.todoItem)
@@ -33,6 +33,39 @@ export class TodoPage {
       .trigger('mouseover')
       .find(todoCSS.deleteButton)
       .click( { force:true } );
+
+    return this;
+  };
+
+  completeTask(taskIndexNumber: number): this {
+
+    cy.get(todoCSS.todoItem)
+      .eq(taskIndexNumber)
+      .find(todoCSS.completeTaskCheckbox)
+      .check()
+      .should('be.checked');
+
+    cy.get(todoCSS.todoItem)
+      .eq(taskIndexNumber)
+      .find(todoCSS.inputText)
+      .should('have.css', 'text-decoration-line', 'line-through');
+
+    return this;
+  };
+
+  clearCompletedTasks(): this {
+
+    cy.get(todoCSS.clearCompletedTasksButton).click();
+
+    return this;
+  };
+
+  verifyOnlyActiveTasksAreLeft(): this {
+
+    cy.get(todoCSS.todoItem)
+      .each(($task) => {
+        cy.wrap($task).should('not.have.class', 'completed');
+      });
 
     return this;
   };
