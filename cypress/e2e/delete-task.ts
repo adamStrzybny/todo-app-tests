@@ -7,8 +7,8 @@ todoContext((TodoPage) => {
       .verifyPageIsOpened()
       .addNewTask(tasks.lesson)
       .addNewTask(tasks.report)
-      .verifyAllTasksWereAdded(2)
+      .verifyAmountOfAddedTasks(2)
       .deleteTask(1)
-      .verifyAllTasksWereAdded(1);
+      .verifyAmountOfAddedTasks(1);
   });
 });
