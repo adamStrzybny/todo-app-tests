@@ -1,11 +1,9 @@
-import js from "@eslint/js";
-import globals from "globals";
 import tseslint from "typescript-eslint";
 import { defineConfig } from "eslint/config";
-
+import globals from "globals";
 
 export default defineConfig([
-{
+  {
     ignores: [
       "dist/",
       "build/",
@@ -15,10 +13,30 @@ export default defineConfig([
       "cypress/downloads/",
       "node_modules/",
       "package-lock.json",
-      "cypress.config.ts"
+      "cypress.config.ts",
+      "eslint.config.mjs",
     ],
   },
-  { files: ["**/*.{js,mjs,cjs,ts}"], plugins: { js }, extends: ["js/recommended"] },
-  { files: ["**/*.{js,mjs,cjs,ts}"], languageOptions: { globals: globals.browser } },
+  {
+    files: ["**/*.ts"],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        ...globals.mocha,
+      },
+      parserOptions: {
+        project: "./tsconfig.json",
+      },
+    },
+    plugins: {
+      "@typescript-eslint": tseslint.plugin,
+    },
+    rules: {
+      "@typescript-eslint/no-unused-vars": "warn",
+      "@typescript-eslint/no-explicit-any": "warn",
+      "no-unused-expressions": "off",
+    },
+  },
   tseslint.configs.recommended,
 ]);
