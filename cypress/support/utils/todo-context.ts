@@ -1,7 +1,7 @@
 import { TodoPage } from '../pages/todo-page';
 
 export const todoContext = (
-  callback: (todoPage: () => TodoPage) => void
+  callback: (todoPage: () => TodoPage) => void,
 ): void => {
   context('Todo Tests', () => {
     beforeEach(() => {

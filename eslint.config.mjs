@@ -32,11 +32,17 @@ export default defineConfig([
     plugins: {
       "@typescript-eslint": tseslint.plugin,
     },
-    rules: {
-      "@typescript-eslint/no-unused-vars": "warn",
-      "@typescript-eslint/no-explicit-any": "warn",
-      "no-unused-expressions": "off",
-    },
+rules: {
+  "semi": ["error", "always"],
+  "no-multiple-empty-lines": ["error", { max: 1 }],
+  "eol-last": ["error", "always"],
+  "indent": ["error", 2],
+  "space-before-function-paren": ["error", "never"],
+  "keyword-spacing": ["error", { before: true }],
+  "object-curly-spacing": ["error", "always"],
+  "comma-dangle": ["error", "always-multiline"],
+
+    }
   },
   tseslint.configs.recommended,
 ]);
