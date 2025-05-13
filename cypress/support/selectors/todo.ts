@@ -8,3 +8,5 @@ export const completeTaskCheckbox = '[aria-label="Toggle Todo"]';
 export const clearCompletedTasksButton = '.clear-completed';
 export const editIem = '.edit';
 export const filters = '.filters';
+export const placeholderText = 'What needs to be done?';
+export const headerText = 'todos';
