@@ -45,7 +45,7 @@ npm run lint
 Auto-fix linting issues:
 
 ```bash
-npm run lint -- --fix
+npm run lint:fix
 ```
 
 ## Project Structure
@@ -57,4 +57,3 @@ npm run lint -- --fix
 - `cypress/support/pages/` – page object classes
 - `cypress/support/selectors/` – reusable selectors
 - `cypress/support/utils/` – test context setup
-- `cypress/support/data/` – optional test data
