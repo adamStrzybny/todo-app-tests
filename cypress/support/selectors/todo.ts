@@ -7,3 +7,4 @@ export const deleteButton = '[aria-label="Delete"]';
 export const completeTaskCheckbox = '[aria-label="Toggle Todo"]';
 export const clearCompletedTasksButton = '.clear-completed';
 export const editIem = '.edit';
+export const filters = '.filters';
