@@ -1,4 +1,5 @@
 import * as todoCSS from '../selectors/todo';
+import { filters } from '../data/enums';
 
 export class TodoPage {
 
@@ -112,6 +113,12 @@ export class TodoPage {
         .check()
         .should('be.checked');
     });
+
+    return this;
+  }
+
+  clickOnFilter(filter : filters): this {
+    cy.get(todoCSS.filters).should('contain', filter).contains('a', filter).click();
 
     return this;
   }
