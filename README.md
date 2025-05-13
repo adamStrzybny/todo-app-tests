@@ -24,6 +24,11 @@ Run Cypress in interactive mode:
 ```bash
 npx cypress open
 ```
+Run all tests in headless mode and generate one merged report:
+
+```bash
+npm run test:report
+```
 
 Run all tests in headless mode:
 

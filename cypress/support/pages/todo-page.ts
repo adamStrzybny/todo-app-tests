@@ -122,4 +122,14 @@ export class TodoPage {
 
     return this;
   }
+
+  verifyHeaderTitle(): this {
+    cy.get('header h1').should('have.text', todoCSS.headerText);
+    return this;
+  }
+
+  verifyInputPlaceholder(): this {
+    cy.get(todoCSS.todoInput).should('have.attr', 'placeholder', todoCSS.placeholderText);
+    return this;
+  }
 };
