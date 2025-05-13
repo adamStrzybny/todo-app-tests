@@ -10,3 +10,4 @@ export const editIem = '.edit';
 export const filters = '.filters';
 export const placeholderText = 'What needs to be done?';
 export const headerText = 'todos';
+export const toggleAllButton = '.toggle-all';
