@@ -8,6 +8,10 @@ todoContext((TodoPage) => {
       .addNewTask(tasks.lesson)
       .addNewTask(tasks.report)
       .addNewTask(tasks.gym)
-      .verifyAmountOfAddedTasks(3);
+      .verifyAmountOfAddedTasks(3)
+      .toggleAllTasks()
+      .verifyAllTasksAreCompleted()
+      .toggleAllTasks()
+      .verifyOnlyActiveTasksAreLeft();
   });
 });

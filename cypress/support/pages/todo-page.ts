@@ -132,4 +132,17 @@ export class TodoPage {
     cy.get(todoCSS.todoInput).should('have.attr', 'placeholder', todoCSS.placeholderText);
     return this;
   }
+
+  toggleAllTasks(): this {
+    cy.get(todoCSS.toggleAllButton).click();
+    return this;
+  }
+
+  verifyAllTasksAreCompleted(): this {
+    cy.get(todoCSS.todoItem).each(($task) => {
+      cy.wrap($task).should('have.class', 'completed');
+    });
+
+    return this;
+  }
 };
