@@ -89,4 +89,30 @@ export class TodoPage {
 
     return this;
   };
+
+  addMultipleTasks(tasks: string[]): this {
+    tasks.forEach((task) => {
+      cy.get(todoCSS.todoInput).type(`${task}{enter}`);
+    });
+
+    return this;
+  }
+  verifyAllTasksVisibility(): this {
+    cy.get(todoCSS.todoItem).each(($task) => {
+      cy.wrap($task).should('be.visible');
+    });
+
+    return this;
+  }
+
+  completeAllTasks(): this {
+    cy.get(todoCSS.todoItem).each(($task) => {
+      cy.wrap($task)
+        .find(todoCSS.completeTaskCheckbox)
+        .check()
+        .should('be.checked');
+    });
+
+    return this;
+  }
 };
